@@ -15,7 +15,7 @@ import { useTheme } from "../../context/ThemeContext";
 export default function FavoritesScreen() {
   const router = useRouter();
   const { favorites } = useFavorites();
-  const { theme } = useTheme(); // Sadece renkleri almak için temayı bıraktık, buton özelliklerini sildik
+  const { theme } = useTheme(); 
 
   const renderFavoriteCard = ({ item }: { item: any }) => (
     <TouchableOpacity
@@ -40,7 +40,6 @@ export default function FavoritesScreen() {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.background }]}
     >
-      {/* Sadece Başlık Kaldı, Buton Gitti */}
       <View style={styles.headerRow}>
         <Text style={[styles.headerTitle, { color: theme.text }]}>
           Favorilerim
