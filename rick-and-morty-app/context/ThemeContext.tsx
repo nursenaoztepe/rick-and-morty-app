@@ -1,7 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-// Temamızın alabileceği değerlerin tipleri
 type ThemeContextType = {
   isDarkMode: boolean;
   toggleTheme: () => void;
@@ -16,7 +15,6 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// Aydınlık ve Karanlık Modun Renk Paletleri
 const lightTheme = {
   background: "#f4f4f8",
   cardBg: "#ffffff",
@@ -26,8 +24,8 @@ const lightTheme = {
 };
 
 const darkTheme = {
-  background: "#121212", // Saf siyah yerine gözü yormayan koyu gri
-  cardBg: "#1e1e1e", // Kartlar arkada plandan biraz daha açık olmalı
+  background: "#121212", 
+  cardBg: "#1e1e1e", 
   text: "#ffffff",
   textMuted: "#aaaaaa",
   border: "#333333",
@@ -36,7 +34,6 @@ const darkTheme = {
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Uygulama ilk açıldığında hafızadaki tema tercihini yükle
   useEffect(() => {
     const loadTheme = async () => {
       try {
@@ -51,7 +48,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     loadTheme();
   }, []);
 
-  // Temayı değiştiren ve hafızaya kaydeden fonksiyon
   const toggleTheme = async () => {
     try {
       const nextMode = !isDarkMode;
