@@ -26,9 +26,3 @@ React Native, Expo Router ve TypeScript kullanılarak geliştirilmiş, Rick and 
 | **Rick & Morty REST API** | Karakter, lokasyon ve bölüm verilerinin çekilmesi |
 
 ---
-
-git clone [https://github.com/nursenaoztepe/rick-and-morty-app.git](https://github.com/nursenaoztepe/rick-and-morty-app.git)
-cd rick-and-morty-app
-npm install
-npx expo start
-```
