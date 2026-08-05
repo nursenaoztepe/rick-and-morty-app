@@ -22,11 +22,9 @@ export default function CharactersScreen() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // FİLTRE STATE'LERİ
   const [activeStatus, setActiveStatus] = useState("All");
   const [activeSpecies, setActiveSpecies] = useState("All");
 
-  // SAYFALAMA STATE'LERİ
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -44,12 +42,10 @@ export default function CharactersScreen() {
     { id: "Alien", label: "Alien" },
   ];
 
-  // KRİTİK DÜZELTME: Arama veya filtre değiştiğinde sayfalama sistemini sıfırla!
   useEffect(() => {
     const resetAndFetch = async () => {
       setLoading(true);
       try {
-        // Filtre değerlerini API url'ine parametre olarak ekliyoruz (Böylece API bize doğru veriyi verecek)
         let url = `https://rickandmortyapi.com/api/character/?page=1`;
         if (searchQuery) url += `&name=${searchQuery}`;
         if (activeStatus !== "All") url += `&status=${activeStatus}`;
@@ -57,7 +53,6 @@ export default function CharactersScreen() {
 
         const response = await fetch(url);
 
-        // Eğer API 404 döndürürse (bulunamadıysa) hata fırlatmak yerine listeyi boşalt
         if (response.status === 404) {
           setCharacters([]);
           setHasMore(false);
@@ -75,7 +70,6 @@ export default function CharactersScreen() {
       }
     };
 
-    // Kullanıcı yazı yazarken her harfte istek atmaması için çok kısa bir gecikme (Debounce taklidi)
     const delayDebounce = setTimeout(() => {
       resetAndFetch();
     }, 300);
@@ -83,7 +77,6 @@ export default function CharactersScreen() {
     return () => clearTimeout(delayDebounce);
   }, [searchQuery, activeStatus, activeSpecies]);
 
-  // DAHA FAZLA YÜKLEME FONKSİYONU
   const fetchMoreCharacters = async () => {
     if (loadingMore || !hasMore) return;
 
@@ -98,7 +91,6 @@ export default function CharactersScreen() {
 
       const response = await fetch(url);
 
-      // Gelen yanıt JSON değil de HTML hatasıysa işlemi güvenli bir şekilde kes
       if (!response.ok || response.status === 404) {
         setHasMore(false);
         setLoadingMore(false);
@@ -187,7 +179,6 @@ export default function CharactersScreen() {
           onChangeText={setSearchQuery}
         />
 
-        {/* STATUS FİLTRESİ */}
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -222,7 +213,6 @@ export default function CharactersScreen() {
           ))}
         </ScrollView>
 
-        {/* SPECIES FİLTRESİ */}
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -259,7 +249,7 @@ export default function CharactersScreen() {
       </View>
 
       <FlatList
-        data={characters} // Filtrelemeyi API seviyesine aldığımız için direkt ham datayı bağlıyoruz
+        data={characters}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderCharacterCard}
         contentContainerStyle={styles.listContainer}
