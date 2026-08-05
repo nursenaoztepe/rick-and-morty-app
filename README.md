@@ -27,7 +27,10 @@ React Native, Expo Router ve TypeScript kullanılarak geliştirilmiş, Rick and 
 
 ---
 
-## ⚡ Kurulum ve Çalıştırma
+## ⚡ Hızlı Başlangıç
 
-1. **Repoyu klonlayın:**
-git clone https://github.com/nursenaoztepe/rick-and-morty-app.git
+```bash
+git clone [https://github.com/nursenaoztepe/rick-and-morty-app.git](https://github.com/nursenaoztepe/rick-and-morty-app.git)
+cd rick-and-morty-app
+npm install
+npx expo start
