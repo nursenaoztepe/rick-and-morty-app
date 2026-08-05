@@ -7,16 +7,13 @@ export default function RootLayout() {
     <ThemeProvider>
       <FavoritesProvider>
         <Stack>
-          {/* Ana sekmeler grubu */}
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
-          {/* Karakter detay sayfası - TypeScript Uyumlu Versiyon */}
           <Stack.Screen
             name="character/[id]"
             options={{
               title: "Character Details",
               headerBackTitle: "Back",
-              // Geri butonundaki metni gizlemenin TypeScript tarafından kabul edilen resmi yolu:
               headerBackVisible: true,
             }}
           />
