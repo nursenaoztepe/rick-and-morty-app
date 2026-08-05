@@ -16,7 +16,6 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: theme.cardBg,
           borderTopColor: theme.border,
-          // height ve padding değerlerini sildik. iOS/Android boşluğu kendi ayarlayacak.
         },
       }}
     >
