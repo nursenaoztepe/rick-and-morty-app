@@ -15,7 +15,7 @@ import { useTheme } from "../../context/ThemeContext";
 export default function CharacterDetailScreen() {
   const { id } = useLocalSearchParams();
   const { toggleFavorite, isFavorite } = useFavorites();
-  const { theme } = useTheme(); // Merkezi tema telsizimiz
+  const { theme } = useTheme();
 
   const [character, setCharacter] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -68,12 +68,10 @@ export default function CharacterDetailScreen() {
 
       <View style={styles.header}>
         <View style={styles.nameRow}>
-          {/* Karakter İsmi (Karanlık Modda Beyaz, Aydınlıkta Siyah) */}
           <Text style={[styles.name, { color: theme.text }]}>
             {character.name}
           </Text>
 
-          {/* Kalp Butonu */}
           <TouchableOpacity
             onPress={() => toggleFavorite(character)}
             activeOpacity={0.7}
@@ -90,7 +88,6 @@ export default function CharacterDetailScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Durum Rozeti */}
         <View style={[styles.statusBadge, { backgroundColor: theme.cardBg }]}>
           <View
             style={[
@@ -111,7 +108,6 @@ export default function CharacterDetailScreen() {
         </View>
       </View>
 
-      {/* Bilgi Kutuları (Temaya Uyarlanmış Renkler) */}
       <View style={[styles.infoBox, { backgroundColor: theme.cardBg }]}>
         <Text style={[styles.infoLabel, { color: theme.textMuted }]}>
           Cinsiyet:
