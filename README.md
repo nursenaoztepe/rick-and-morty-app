@@ -37,3 +37,6 @@ cd rick-and-morty-app
 npm install
 npx expo start
 ```
+npm install
+npx expo start
+```
