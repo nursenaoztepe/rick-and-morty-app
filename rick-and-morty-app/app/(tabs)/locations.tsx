@@ -10,7 +10,7 @@ import {
 import { useTheme } from "../../context/ThemeContext";
 
 export default function LocationsScreen() {
-  const { theme, isDarkMode } = useTheme(); // Temamızı çektik
+  const { theme, isDarkMode } = useTheme();
   const [locations, setLocations] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -38,9 +38,6 @@ export default function LocationsScreen() {
         { backgroundColor: theme.cardBg, borderColor: theme.border },
       ]}
     >
-      {/* isDarkMode true ise yeşil (#00ff00), 
-        false ise temanın kendi yazı rengi (theme.text) olacak 
-      */}
       <Text
         style={[styles.name, { color: isDarkMode ? "#00ff00" : theme.text }]}
       >
