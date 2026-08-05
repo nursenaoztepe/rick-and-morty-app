@@ -32,7 +32,7 @@ React Native, Expo Router ve TypeScript kullanılarak geliştirilmiş, Rick and 
 Projeyi bilgisayarınıza klonlayıp çalıştırmak için terminalinize sırasıyla şu komutları girebilirsiniz:
 
 ```bash
-git clone [https://github.com/nursenaoztepe/rick-and-morty-app.git](https://github.com/nursenaoztepe/rick-and-morty-app.git)
+git clone https://github.com/nursenaoztepe/rick-and-morty-app.git
 cd rick-and-morty-app
 npm install
 npx expo start
